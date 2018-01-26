@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RobotMaze
 {
-    public class InputManager : MonoBehaviour
+    public class InputController : MonoBehaviour
     {
         /// <summary>
         /// Initializes the object.
