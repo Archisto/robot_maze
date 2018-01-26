@@ -4,7 +4,7 @@
     <Files>
       <File FileName="Assets\Scripts\Button.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\GoDown.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Robot.cs" Line="29" Column="20" />
+      <File FileName="Assets\Scripts\Robot.cs" Line="105" Column="27" />
       <File FileName="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" Line="1" Column="1" />
       <File FileName="Assets\SteamVR\Scripts\SteamVR_RenderModel.cs" Line="1" Column="1" />
     </Files>

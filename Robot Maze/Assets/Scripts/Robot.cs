@@ -97,12 +97,12 @@ namespace RobotMaze
                 }
                 case InstructionType.TurnLeft:
                 {
-                    TurnLeft();
+                    RotateLeft();
                     break;
                 }
                 case InstructionType.TurnRight:
                 {
-                    TurnRight();
+                    RotateRight();
                     break;
                 }
                 case InstructionType.UTurn:
@@ -123,20 +123,7 @@ namespace RobotMaze
             }
         }
 
-        private void MoveForward()
-        {
-
-        }
-
-        private void TurnLeft()
-        {
-
-        }
-
-        private void TurnRight()
-        {
-
-        }
+        
 
         private void UTurn()
         {
