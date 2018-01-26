@@ -10,8 +10,8 @@ namespace RobotMaze
         TurnLeft = 1,
         TurnRight = 2,
         UTurn = 3,
-        PickUp = 4,
-        Drop = 5,
+        PickUpItem = 4,
+        DropItem = 5,
         Stop = 6
     }
 
@@ -19,8 +19,6 @@ namespace RobotMaze
     {
         public InstructionType type;
         public string text;
-
-        public bool Active { get; set; }
 
         /// <summary>
         /// Initializes the object.
