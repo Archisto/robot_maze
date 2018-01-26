@@ -4,24 +4,8 @@ using UnityEngine;
 
 namespace RobotMaze
 {
-    public enum InstructionType
+    public class Robot : MonoBehaviour
     {
-        MoveForward = 0,
-        TurnLeft = 1,
-        TurnRight = 2,
-        UTurn = 3,
-        PickUp = 4,
-        Drop = 5,
-        Stop = 6
-    }
-
-    public class Instruction : MonoBehaviour
-    {
-        public InstructionType type;
-        public string text;
-
-        public bool Active { get; set; }
-
         /// <summary>
         /// Initializes the object.
         /// </summary>
