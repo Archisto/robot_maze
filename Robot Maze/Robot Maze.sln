@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robot Maze", "Robot Maze.csproj", "{EA438865-2CEA-1CB9-3C5C-F52E882907CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robot Maze.Editor", "Robot Maze.Editor.csproj", "{83A5E8BC-D622-FDD3-AFA3-A70A24936AF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA438865-2CEA-1CB9-3C5C-F52E882907CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA438865-2CEA-1CB9-3C5C-F52E882907CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA438865-2CEA-1CB9-3C5C-F52E882907CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA438865-2CEA-1CB9-3C5C-F52E882907CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A5E8BC-D622-FDD3-AFA3-A70A24936AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A5E8BC-D622-FDD3-AFA3-A70A24936AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A5E8BC-D622-FDD3-AFA3-A70A24936AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A5E8BC-D622-FDD3-AFA3-A70A24936AF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
