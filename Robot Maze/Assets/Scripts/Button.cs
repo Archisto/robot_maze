@@ -6,12 +6,15 @@ namespace RobotMaze
 {
     public class Button : MonoBehaviour
     {
+
+		GoDown _buttonCylinder;
+
         /// <summary>
         /// Initializes the object.
         /// </summary>
         private void Start()
         {
-
+			_buttonCylinder = transform.parent.Find ("Cylinder").GetComponent<GoDown>();
         }
 
         /// <summary>
@@ -21,5 +24,13 @@ namespace RobotMaze
         {
 
         }
+
+		void OnTriggerEnter(Collider other)
+		{
+			if (other.tag == "Robot") 
+			{
+				_buttonCylinder.BePressed ();
+			}
+		}
     }
 }
