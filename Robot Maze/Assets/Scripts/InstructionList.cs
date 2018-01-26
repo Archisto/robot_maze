@@ -6,7 +6,7 @@ namespace RobotMaze
 {
     public class InstructionList : MonoBehaviour
     {
-        public Instruction[] instructions;
+        private Instruction[] instructions;
 
         /// <summary>
         /// Initializes the object.
@@ -22,6 +22,14 @@ namespace RobotMaze
         private void Update()
         {
 
+        }
+
+        public Instruction[] Instructions
+        {
+            get
+            {
+                return instructions;
+            }
         }
     }
 }
