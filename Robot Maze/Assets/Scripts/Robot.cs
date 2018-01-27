@@ -103,7 +103,6 @@ namespace RobotMaze
 				instructions = gotInstructions;
 				active = true;
 
-				startPosition = transform.position;
 				startRotation = transform.rotation;
 			}
         }
@@ -185,6 +184,7 @@ namespace RobotMaze
 			if (canAct) {
                 if (!ObstacleAhead(1))
                 {
+                    InitMovement();
                     StartCoroutine(MoveSquare());
                 }
                 else
@@ -211,16 +211,21 @@ namespace RobotMaze
 			canAct = false;
 			for(int i = 0; i < 60 / GameManager.Instance.robotActionSpeed; i++){
 
-                if (!ObstacleAhead(0.4f))
+                float gridSideLength = GameManager.Instance.gridSideLength;
+                //float ratio = Time.time - startTime / GameManager.Instance.robotActionSpeed;
+
+                if (Vector3.Distance(transform.position, targetPosition) <
+                        0.5f * gridSideLength ||
+                        !CrashedIntoAnotherRobot())
                 {
-                    transform.Translate(Vector3.forward * GameManager.Instance.gridSideLength * 1 / 60);
+                    transform.Translate(Vector3.forward * gridSideLength * 1 / 60);
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 else
                 {
                     broken = true;
                     Deactivate();
-                    Debug.Log(name + " crashed into something");
+                    Debug.Log(name + " crashed into another robot.");
                     yield break;
                 }
 			}
@@ -228,11 +233,13 @@ namespace RobotMaze
 			readyForNextInstruction = true;
 		}
 
-        //private void InitMovement()
-        //{
-        //    startTime = Time.time;
-        //    targetPosition = transform.position + transform.forward * GameManager.Instance.gridSideLength;
-        //}
+        private void InitMovement()
+        {
+            startTime = Time.time;
+            startPosition = transform.position;
+            targetPosition = transform.position +
+                transform.forward * GameManager.Instance.gridSideLength;
+        }
 
         //private void Move()
         //{
@@ -274,9 +281,17 @@ namespace RobotMaze
 			readyForNextInstruction = true;
 		}
 
-        private bool ObstacleAhead(float maxDistance)
+        private Vector3 raycastStart = Vector3.zero;
+        private Vector3 raycastEnd = Vector3.zero;
+        private bool ObstacleAhead(Vector3 raycastOrigin, float maxDistance)
         {
-            Ray ray = new Ray(transform.position, transform.forward);
+            float y = 0.3f;
+
+            raycastStart = raycastOrigin;
+            raycastStart.y += y;
+            raycastEnd = raycastStart + transform.forward * maxDistance;
+
+            Ray ray = new Ray(raycastStart, transform.forward);
             RaycastHit hitInfo;
             if (Physics.Raycast(ray, out hitInfo, maxDistance, layerMask))
             {
@@ -285,8 +300,26 @@ namespace RobotMaze
             }
 
             return false;
+        }
 
-            //return Physics.Raycast(transform.position + transform.forward * 0.6f, transform.forward, 1);
+        private bool ObstacleAhead(float maxDistance)
+        {
+            return ObstacleAhead(transform.position, maxDistance);
+        }
+
+        private bool CrashedIntoAnotherRobot()
+        {
+            Vector3 offset = transform.right * 0.4f * GameManager.Instance.gridSideLength;
+            Vector3 raycastOrigin1 = transform.position + -1f * offset;
+            Vector3 raycastOrigin2 = transform.position + offset;
+
+            return ObstacleAhead(raycastOrigin1, 0.5f) || ObstacleAhead(raycastOrigin2, 0.5f);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(raycastStart, raycastEnd);
         }
     }
 }
