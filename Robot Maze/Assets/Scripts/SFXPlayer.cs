@@ -25,8 +25,15 @@ namespace RobotMaze
 
         Engine1 = 0,
         Engine2 = 1,
-        Engine3 = 2,
+        MainEngine = 2,
         Engine4 = 3,
+        Chirp = 4,
+        Chatter = 5,
+        Confirm = 6,
+        ButtonPress = 7,
+        RadioShort = 8,
+        RadioRising = 9,
+        Echo = 10
     }
 
     public class SFXPlayer : MonoBehaviour

@@ -18,12 +18,14 @@ namespace RobotMaze
         private Transform button;
 
 		[SerializeField]
-		GameObject arrow;
+        private GameObject arrow;
 
-		bool canGoDown = true;
-		bool canGoUp = false;
+        private bool canGoDown = true;
+        private bool canGoUp = false;
 
-		bool _buttonIsHeld = false;
+        private bool _buttonIsHeld = false;
+
+        private bool resetButtonTarget = false;
 
         /// <summary>
         /// Initializes the object.
@@ -57,33 +59,72 @@ namespace RobotMaze
 			//Debug.DrawRay (transform.position + transform.up, transform.up * 100f, Color.red);
 			if (Physics.Raycast (forwardRay, out hit, maxTransmissionDist)) {
 				hitObj = hit.transform.gameObject;
-				targetRobot = null;
-				targetRobot = hitObj.GetComponent<Robot> ();
-				if (targetRobot != null) {
-					Debug.Log ("That is a robot");
-					arrow.SetActive (true);
-					arrow.transform.position = new Vector3 (targetRobot.transform.position.x, targetRobot.transform.position.y + 2f, targetRobot.transform.position.z);
-				} else {
-					arrow.SetActive (false);
-				}
+                CheckTargetResetButton(hitObj);
+                CheckTargetRobot(hitObj);
 				Debug.Log (hitObj.name);
 			} else {
 				arrow.SetActive (false);
 			}
         }
 
-        public void OnBigButtonReleased()
+        private bool CheckTargetResetButton(GameObject hitObj)
         {
+            if (hitObj.tag == "ResetButton")
+            {
+                if (!resetButtonTarget)
+                {
+                    resetButtonTarget = true;
+                }
+                return true;
+            }
+            else
+            {
+                if (resetButtonTarget)
+                {
+                    resetButtonTarget = false;
+                }
+                return false;
+            }
+        }
+
+        private bool CheckTargetRobot(GameObject hitObj)
+        {
+            targetRobot = null;
+            targetRobot = hitObj.GetComponent<Robot>();
             if (targetRobot != null)
             {
-                Debug.Log("Robot activated");
-                //targetRobot.Active = true;
-				targetRobot.Activate(instructions);
-                targetRobot = null;
+                arrow.SetActive(true);
+                arrow.transform.position = new Vector3(targetRobot.transform.position.x, targetRobot.transform.position.y + 2f, targetRobot.transform.position.z);
+
+                return true;
             }
-			_buttonIsHeld = false;
-			arrow.SetActive (false);
-			StartCoroutine (ButtonUp ());
+            else
+            {
+                arrow.SetActive(false);
+
+                return false;
+            }
+        }
+
+        public void OnBigButtonReleased()
+        {
+            if (resetButtonTarget)
+            {
+                GameManager.Instance.ResetLevel();
+            }
+            else
+            {
+                if (targetRobot != null)
+                {
+                    Debug.Log("Robot activated");
+                    //targetRobot.Active = true;
+                    targetRobot.Activate(instructions);
+                    targetRobot = null;
+                }
+                _buttonIsHeld = false;
+                arrow.SetActive(false);
+                StartCoroutine(ButtonUp());
+            }
         }
 
 		IEnumerator ButtonDown(){
