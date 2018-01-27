@@ -95,7 +95,7 @@ namespace RobotMaze
 			canGoDown = false;
 
 			for (int i = 0; i < 5; i++) {
-				button.Translate (0f, 0f, -0.00005f);
+				button.Translate (0f, 0f, -0.0008f);
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 
@@ -113,7 +113,7 @@ namespace RobotMaze
 			canGoUp = false;
 
 			for (int i = 0; i < 5; i++) {
-				button.Translate (0f, 0f, 0.00005f);
+				button.Translate (0f, 0f, 0.0008f);
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 
