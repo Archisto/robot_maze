@@ -33,7 +33,7 @@ namespace RobotMaze
         #endregion Statics
 
         public float gridSideLength;
-        public float robotActionDuration;
+        public float robotActionSpeed;
 
         private void Awake()
         {

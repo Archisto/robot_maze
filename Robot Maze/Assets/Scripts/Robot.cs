@@ -8,16 +8,20 @@ namespace RobotMaze
     {
 
 		bool canAct = true;
-		
+
         private Instruction[] instructions;
         private int currentInstruction;
         private bool readyForNextInstruction;
         private bool active;
+        private bool broken = false;
 
+        private float startTime;
         private Vector3 startPosition;
         private Vector3 targetPosition;
         private Quaternion startRotation;
         private Quaternion targetRotation;
+
+        private LayerMask layerMask;
 
         public bool Active
         {
@@ -40,7 +44,7 @@ namespace RobotMaze
         /// </summary>
         private void Start()
         {
-            
+            layerMask = LayerMask.GetMask("Robot", "Wall");
         }
 
         /// <summary>
@@ -70,7 +74,7 @@ namespace RobotMaze
                     }
                     else
                     {
-                        active = false;
+                        Deactivate();
                     }
                 }
                 else
@@ -78,12 +82,23 @@ namespace RobotMaze
                     FollowCurrentInstruction();
                 }
             }
+
+            // Testing purposes only
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Instruction[] debugInsts = FindObjectOfType<InstructionList>().Instructions;
+                    Activate(debugInsts);
+                }
+            }
         }
 
 		public void Activate(Instruction[] gotInstructions)
         {
-			if (!active) {
-				currentInstruction = 0;
+			if (!active && !broken)
+            {
+                currentInstruction = 0;
 				readyForNextInstruction = true;
 				instructions = gotInstructions;
 				active = true;
@@ -91,6 +106,14 @@ namespace RobotMaze
 				startPosition = transform.position;
 				startRotation = transform.rotation;
 			}
+        }
+
+        public void Deactivate()
+        {
+            if (active)
+            {
+                active = false;
+            }
         }
 
         private void FollowCurrentInstruction()
@@ -117,6 +140,11 @@ namespace RobotMaze
                     UTurn();
                     break;
                 }
+                case InstructionType.PushItem:
+                {
+                    DropItem();
+                    break;
+                }
                 case InstructionType.PickUpItem:
                 {
                     PickUpItem();
@@ -130,9 +158,14 @@ namespace RobotMaze
             }
         }
 
-        
+
 
         private void UTurn()
+        {
+
+        }
+
+        private void PushItem()
         {
 
         }
@@ -150,7 +183,15 @@ namespace RobotMaze
 		public void MoveForward()
 		{
 			if (canAct) {
-				StartCoroutine (MoveSquare ());
+                if (!ObstacleAhead(1))
+                {
+                    StartCoroutine(MoveSquare());
+                }
+                else
+                {
+                    Deactivate();
+                    Debug.Log(name + " cannot move because there's an obstacle in the way.");
+                }
 			}
 		}
 
@@ -168,15 +209,52 @@ namespace RobotMaze
 
 		IEnumerator MoveSquare(){
 			canAct = false;
-			for(int i = 0; i < 60; i++){
-				transform.Translate (Vector3.forward * 1 / 60);
-				yield return new WaitForSeconds (Time.deltaTime);
+			for(int i = 0; i < 60 / GameManager.Instance.robotActionSpeed; i++){
+
+                if (!ObstacleAhead(0.4f))
+                {
+                    transform.Translate(Vector3.forward * GameManager.Instance.gridSideLength * 1 / 60);
+                    yield return new WaitForSeconds(Time.deltaTime);
+                }
+                else
+                {
+                    broken = true;
+                    Deactivate();
+                    Debug.Log(name + " crashed into something");
+                    yield break;
+                }
 			}
 			canAct = true;
 			readyForNextInstruction = true;
 		}
 
-		IEnumerator SpinLeft(){
+        //private void InitMovement()
+        //{
+        //    startTime = Time.time;
+        //    targetPosition = transform.position + transform.forward * GameManager.Instance.gridSideLength;
+        //}
+
+        //private void Move()
+        //{
+        //    float ratio = Time.time - startTime / GameManager.Instance.robotActionSpeed;
+
+        //    transform.position = Vector3.Lerp(startPosition, targetPosition, ratio);
+        //}
+
+        //private void InitRotation()
+        //{
+        //    startTime = Time.time;
+        //    targetRotation = transform.rotation + transform.forward * GameManager.Instance.gridSideLength;
+        //}
+
+        //private void Rotate()
+        //{
+        //    float ratio = Time.time - startTime / GameManager.Instance.robotActionSpeed;
+
+        //    transform.position = Vector3.Lerp(startPosition, targetPosition, ratio);
+        //}
+
+        IEnumerator SpinLeft(){
 			canAct = false;
 			for(int i = 0; i < 90; i++){
 				transform.Rotate (Vector3.down, 1f);
@@ -195,5 +273,20 @@ namespace RobotMaze
 			canAct = true;
 			readyForNextInstruction = true;
 		}
+
+        private bool ObstacleAhead(float maxDistance)
+        {
+            Ray ray = new Ray(transform.position, transform.forward);
+            RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, maxDistance, layerMask))
+            {
+                Debug.Log("Raycast hit: " + hitInfo.transform.name);
+                return true;
+            }
+
+            return false;
+
+            //return Physics.Raycast(transform.position + transform.forward * 0.6f, transform.forward, 1);
+        }
     }
 }
