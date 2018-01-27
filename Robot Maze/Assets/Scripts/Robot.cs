@@ -224,6 +224,8 @@ namespace RobotMaze
                 else
                 {
                     broken = true;
+					transform.Find ("Point light").gameObject.SetActive (false);
+					transform.Find ("Point light (1)").gameObject.SetActive (false);
                     Deactivate();
                     Debug.Log(name + " crashed into another robot.");
                     yield break;
