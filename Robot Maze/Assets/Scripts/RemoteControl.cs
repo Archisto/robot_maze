@@ -12,6 +12,9 @@ namespace RobotMaze
 		bool canGoDown = true;
 		bool canGoUp = false;
 
+		[SerializeField]
+		Transform button;
+
 		bool _buttonIsHeld = false;
 
         /// <summary>
@@ -35,6 +38,7 @@ namespace RobotMaze
 		{
 			Debug.Log ("Button is pressed");
 			_buttonIsHeld = true;
+			StartCoroutine (ButtonDown ());
 		}
 
         public void OnBigButtonHeld()
@@ -64,10 +68,43 @@ namespace RobotMaze
                 targetRobot = null;
             }
 			_buttonIsHeld = false;
+			StartCoroutine (ButtonUp ());
         }
 
-		public void ButtonDown(){
+		IEnumerator ButtonDown(){
+			//up z-coordinate is [0.05]
+			//down z-coordinate is [0.04]
 
+			while (!canGoDown) {
+				yield return new WaitForSeconds (Time.deltaTime);
+			}
+
+			canGoDown = false;
+
+			for (int i = 0; i < 10; i++) {
+				button.Translate (0f, 0f, -0.000025f);
+				yield return new WaitForSeconds (Time.deltaTime);
+			}
+
+			canGoUp = true;
+		}
+
+		IEnumerator ButtonUp(){
+			//up z-coordinate is [0.05]
+			//down z-coordinate is [0.04]
+
+			while (!canGoUp) {
+				yield return new WaitForSeconds (Time.deltaTime);
+			}
+
+			canGoUp = false;
+
+			for (int i = 0; i < 10; i++) {
+				button.Translate (0f, 0f, 0.000025f);
+				yield return new WaitForSeconds (Time.deltaTime);
+			}
+
+			canGoDown = true;
 		}
     }
 }
