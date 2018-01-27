@@ -62,7 +62,7 @@ namespace RobotMaze
 
         public void ResetLevel()
         {
-            
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
