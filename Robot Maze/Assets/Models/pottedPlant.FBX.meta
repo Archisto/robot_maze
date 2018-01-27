@@ -1,0 +1,238 @@
+fileFormatVersion: 2
+guid: 38182b14d2ae4c3409f0ca3c07fbc848
+timeCreated: 1517093401
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: dirt
+    100002: leaf001
+    100004: leaf002
+    100006: leaf003
+    100008: leaf004
+    100010: leaf005
+    100012: leaf006
+    100014: leaf007
+    100016: leaf008
+    100018: leaf009
+    100020: leaf010
+    100022: leaf011
+    100024: leaf012
+    100026: leaf013
+    100028: leaf014
+    100030: leaf015
+    100032: leaf016
+    100034: leaf017
+    100036: leaf018
+    100038: leaf019
+    100040: leaf020
+    100042: leaf021
+    100044: leaf022
+    100046: leaf023
+    100048: leaf024
+    100050: plant001
+    100052: plant002
+    100054: plant003
+    100056: pot
+    100058: //RootNode
+    400000: dirt
+    400002: leaf001
+    400004: leaf002
+    400006: leaf003
+    400008: leaf004
+    400010: leaf005
+    400012: leaf006
+    400014: leaf007
+    400016: leaf008
+    400018: leaf009
+    400020: leaf010
+    400022: leaf011
+    400024: leaf012
+    400026: leaf013
+    400028: leaf014
+    400030: leaf015
+    400032: leaf016
+    400034: leaf017
+    400036: leaf018
+    400038: leaf019
+    400040: leaf020
+    400042: leaf021
+    400044: leaf022
+    400046: leaf023
+    400048: leaf024
+    400050: plant001
+    400052: plant002
+    400054: plant003
+    400056: pot
+    400058: //RootNode
+    2300000: dirt
+    2300002: leaf001
+    2300004: leaf002
+    2300006: leaf003
+    2300008: leaf004
+    2300010: leaf005
+    2300012: leaf006
+    2300014: leaf007
+    2300016: leaf008
+    2300018: leaf009
+    2300020: leaf010
+    2300022: leaf011
+    2300024: leaf012
+    2300026: leaf013
+    2300028: leaf014
+    2300030: leaf015
+    2300032: leaf016
+    2300034: leaf017
+    2300036: leaf018
+    2300038: leaf019
+    2300040: leaf020
+    2300042: leaf021
+    2300044: leaf022
+    2300046: leaf023
+    2300048: leaf024
+    2300050: plant001
+    2300052: plant002
+    2300054: plant003
+    2300056: pot
+    3300000: dirt
+    3300002: leaf001
+    3300004: leaf002
+    3300006: leaf003
+    3300008: leaf004
+    3300010: leaf005
+    3300012: leaf006
+    3300014: leaf007
+    3300016: leaf008
+    3300018: leaf009
+    3300020: leaf010
+    3300022: leaf011
+    3300024: leaf012
+    3300026: leaf013
+    3300028: leaf014
+    3300030: leaf015
+    3300032: leaf016
+    3300034: leaf017
+    3300036: leaf018
+    3300038: leaf019
+    3300040: leaf020
+    3300042: leaf021
+    3300044: leaf022
+    3300046: leaf023
+    3300048: leaf024
+    3300050: plant001
+    3300052: plant002
+    3300054: plant003
+    3300056: pot
+    4300000: pot
+    4300002: dirt
+    4300004: leaf001
+    4300006: leaf002
+    4300008: leaf003
+    4300010: leaf004
+    4300012: leaf005
+    4300014: leaf006
+    4300016: leaf007
+    4300018: leaf008
+    4300020: leaf009
+    4300022: leaf010
+    4300024: leaf011
+    4300026: leaf012
+    4300028: leaf013
+    4300030: leaf014
+    4300032: leaf015
+    4300034: leaf016
+    4300036: plant001
+    4300038: plant002
+    4300040: plant003
+    4300042: leaf017
+    4300044: leaf018
+    4300046: leaf019
+    4300048: leaf020
+    4300050: leaf021
+    4300052: leaf022
+    4300054: leaf023
+    4300056: leaf024
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 28c58a2e1653c38418488b85b2cf534e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
