@@ -21,6 +21,9 @@ namespace RobotMaze
 
 			GetComponent<VRTK_ControllerEvents>().TouchpadReleased += new ControllerInteractionEventHandler(DoTouchpadReleased);
 			GetComponent<VRTK_ControllerEvents>().TouchpadPressed += new ControllerInteractionEventHandler(DoTouchpadPressed);
+
+			GetComponent<VRTK_ControllerEvents>().TriggerPressed += new ControllerInteractionEventHandler(DoTriggerPressed);
+			GetComponent<VRTK_ControllerEvents>().TriggerReleased += new ControllerInteractionEventHandler(DoTriggerReleased);
 		}
 		
 		// Update is called once per frame
@@ -46,6 +49,24 @@ namespace RobotMaze
 		private void DoTouchpadReleased(object sender, ControllerInteractionEventArgs e)
 		{
 			DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TOUCHPAD", "released", e);
+			if (_myRC != null) 
+			{
+				_myRC.OnBigButtonReleased ();
+			}
+		}
+
+		private void DoTriggerPressed(object sender, ControllerInteractionEventArgs e)
+		{
+			//DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TOUCHPAD", "pressed down", e);
+			if (_myRC != null) 
+			{
+				_myRC.OnBigButtonPressed ();
+			}
+		}
+
+		private void DoTriggerReleased(object sender, ControllerInteractionEventArgs e)
+		{
+			//DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TOUCHPAD", "released", e);
 			if (_myRC != null) 
 			{
 				_myRC.OnBigButtonReleased ();
