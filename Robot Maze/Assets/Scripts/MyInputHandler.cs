@@ -7,6 +7,9 @@ namespace RobotMaze
 {
 	public class MyInputHandler : MonoBehaviour {
 
+		[SerializeField]
+		RemoteControl _myRC;
+
 		// Use this for initialization
 		void Start () {
 			if (GetComponent<VRTK_ControllerEvents>() == null)
@@ -34,11 +37,19 @@ namespace RobotMaze
 		private void DoTouchpadPressed(object sender, ControllerInteractionEventArgs e)
 		{
 			DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TOUCHPAD", "pressed down", e);
+			if (_myRC != null) 
+			{
+				_myRC.OnBigButtonPressed ();
+			}
 		}
 
 		private void DoTouchpadReleased(object sender, ControllerInteractionEventArgs e)
 		{
 			DebugLogger(VRTK_ControllerReference.GetRealIndex(e.controllerReference), "TOUCHPAD", "released", e);
+			if (_myRC != null) 
+			{
+				_myRC.OnBigButtonReleased ();
+			}
 		}
 	}
 }
