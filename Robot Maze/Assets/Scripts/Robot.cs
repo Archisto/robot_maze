@@ -30,7 +30,7 @@ namespace RobotMaze
                 active = value;
                 if (active)
                 {
-                    Activate();
+                    //Activate();
                 }
             }
         }
@@ -48,26 +48,29 @@ namespace RobotMaze
         /// </summary>
         private void Update()
         {
-			if (Input.GetKeyDown (KeyCode.Space)) {
+			/*if (Input.GetKeyDown (KeyCode.Space)) {
 				MoveForward ();
 			} else if (Input.GetKeyDown (KeyCode.LeftControl)) {
 				RotateLeft ();
 			} else if (Input.GetKeyDown (KeyCode.LeftShift)) {
 				RotateRight ();
-			}
+			}*/
 			
-            if (Active)
+            if (active)
             {
                 if (readyForNextInstruction)
                 {
                     readyForNextInstruction = false;
+
+					FollowCurrentInstruction ();
+
                     if (currentInstruction < instructions.Length - 1)
                     {
                         currentInstruction++;
                     }
                     else
                     {
-                        Active = false;
+                        active = false;
                     }
                 }
                 else
@@ -77,13 +80,17 @@ namespace RobotMaze
             }
         }
 
-        private void Activate()
+		public void Activate(Instruction[] gotInstructions)
         {
-            currentInstruction = 0;
-            readyForNextInstruction = false;
+			if (!active) {
+				currentInstruction = 0;
+				readyForNextInstruction = true;
+				instructions = gotInstructions;
+				active = true;
 
-            startPosition = transform.position;
-            startRotation = transform.rotation;
+				startPosition = transform.position;
+				startRotation = transform.rotation;
+			}
         }
 
         private void FollowCurrentInstruction()
@@ -166,6 +173,7 @@ namespace RobotMaze
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 			canAct = true;
+			readyForNextInstruction = true;
 		}
 
 		IEnumerator SpinLeft(){
@@ -175,6 +183,7 @@ namespace RobotMaze
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 			canAct = true;
+			readyForNextInstruction = true;
 		}
 
 		IEnumerator SpinRight(){
@@ -184,6 +193,7 @@ namespace RobotMaze
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 			canAct = true;
+			readyForNextInstruction = true;
 		}
     }
 }

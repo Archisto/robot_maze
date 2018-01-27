@@ -17,6 +17,12 @@ namespace RobotMaze
 
 		bool _buttonIsHeld = false;
 
+		[SerializeField]
+		private Instruction[] instructions;
+
+		[SerializeField]
+		GameObject arrow;
+
         /// <summary>
         /// Initializes the object.
         /// </summary>
@@ -46,16 +52,22 @@ namespace RobotMaze
             GameObject hitObj = null;
             RaycastHit hit;
 			Ray forwardRay = new Ray(transform.position + transform.up, transform.up * 100f);
-			Debug.DrawRay (transform.position + transform.up, transform.up * 100f, Color.red);
-            if (Physics.Raycast(forwardRay, out hit, maxTransmissionDist))
-            {
-                hitObj = hit.transform.gameObject;
-                targetRobot = hitObj.GetComponent<Robot>();
+			//Debug.DrawRay (transform.position + transform.up, transform.up * 100f, Color.red);
+			if (Physics.Raycast (forwardRay, out hit, maxTransmissionDist)) {
+				hitObj = hit.transform.gameObject;
+				targetRobot = null;
+				targetRobot = hitObj.GetComponent<Robot> ();
 				if (targetRobot != null) {
 					Debug.Log ("That is a robot");
+					arrow.SetActive (true);
+					arrow.transform.position = new Vector3 (targetRobot.transform.position.x, targetRobot.transform.position.y + 2f, targetRobot.transform.position.z);
+				} else {
+					arrow.SetActive (false);
 				}
 				Debug.Log (hitObj.name);
-            }
+			} else {
+				arrow.SetActive (false);
+			}
         }
 
         public void OnBigButtonReleased()
@@ -64,10 +76,11 @@ namespace RobotMaze
             {
                 Debug.Log("Robot activated");
                 //targetRobot.Active = true;
-				targetRobot.MoveForward();
+				targetRobot.Activate(instructions);
                 targetRobot = null;
             }
 			_buttonIsHeld = false;
+			arrow.SetActive (false);
 			StartCoroutine (ButtonUp ());
         }
 
@@ -81,8 +94,8 @@ namespace RobotMaze
 
 			canGoDown = false;
 
-			for (int i = 0; i < 10; i++) {
-				button.Translate (0f, 0f, -0.000025f);
+			for (int i = 0; i < 5; i++) {
+				button.Translate (0f, 0f, -0.00005f);
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 
@@ -99,8 +112,8 @@ namespace RobotMaze
 
 			canGoUp = false;
 
-			for (int i = 0; i < 10; i++) {
-				button.Translate (0f, 0f, 0.000025f);
+			for (int i = 0; i < 5; i++) {
+				button.Translate (0f, 0f, 0.00005f);
 				yield return new WaitForSeconds (Time.deltaTime);
 			}
 
