@@ -6,22 +6,25 @@ namespace RobotMaze
 {
     public class RemoteControl : MonoBehaviour
     {
-        public float maxTransmissionDist;
-        public Robot targetRobot;
+		[SerializeField]
+		private Instruction[] instructions;
+
+        [SerializeField]
+        private float maxTransmissionDist;
+
+        [SerializeField]
+        private Robot targetRobot;
+
+		[SerializeField]
+        private Transform button;
+
+		[SerializeField]
+		GameObject arrow;
 
 		bool canGoDown = true;
 		bool canGoUp = false;
 
-		[SerializeField]
-		Transform button;
-
 		bool _buttonIsHeld = false;
-
-		[SerializeField]
-		private Instruction[] instructions;
-
-		[SerializeField]
-		GameObject arrow;
 
         /// <summary>
         /// Initializes the object.
