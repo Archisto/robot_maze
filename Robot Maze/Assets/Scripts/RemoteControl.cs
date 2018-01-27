@@ -6,7 +6,6 @@ namespace RobotMaze
 {
     public class RemoteControl : MonoBehaviour
     {
-		[SerializeField]
 		private Instruction[] instructions;
 
         [SerializeField]
@@ -31,7 +30,7 @@ namespace RobotMaze
         /// </summary>
         private void Start()
         {
-
+			instructions = FindObjectOfType<InstructionList> ().Instructions;
         }
 
 		private void Update()
