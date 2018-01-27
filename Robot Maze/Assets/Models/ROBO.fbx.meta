@@ -1,0 +1,152 @@
+fileFormatVersion: 2
+guid: 86b220a887d0f0b449a0ae46a856c2bf
+timeCreated: 1517052885
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Robot.001
+    100004: Robot.002
+    100006: WheelBL.001
+    100008: wheelBR.001
+    100010: WheelFL.001
+    100012: wheelFR.001
+    400000: //RootNode
+    400002: Robot.001
+    400004: Robot.002
+    400006: WheelBL.001
+    400008: wheelBR.001
+    400010: WheelFL.001
+    400012: wheelFR.001
+    2300000: Robot.001
+    2300002: Robot.002
+    2300004: WheelBL.001
+    2300006: wheelBR.001
+    2300008: WheelFL.001
+    2300010: wheelFR.001
+    3300000: Robot.001
+    3300002: Robot.002
+    3300004: WheelBL.001
+    3300006: wheelBR.001
+    3300008: WheelFL.001
+    3300010: wheelFR.001
+    4300000: Robot.002
+    4300002: Robot.001
+    4300004: WheelBL.001
+    4300006: WheelFL.001
+    4300008: wheelFR.001
+    4300010: wheelBR.001
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.000
+    second: {fileID: 2100000, guid: c9c3a040ad9d6f0458e1af8df0738300, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: a62072b859eed1345806691b184fde8c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.010
+    second: {fileID: 2100000, guid: 57787070a40d8af4781dcc16a132d705, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.011
+    second: {fileID: 2100000, guid: 7287e7aa074d33b4e9c90f2551b97dfd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: detail.001
+    second: {fileID: 2100000, guid: 8d2bcc520f1ea574ab55bef151c58646, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: robot_wheel.001
+    second: {fileID: 2100000, guid: b80d2eca84876e64b96060a110622356, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: valo.001
+    second: {fileID: 2100000, guid: 84324723aafa90148bcd6f85239a94aa, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
