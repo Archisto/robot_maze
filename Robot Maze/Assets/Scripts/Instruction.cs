@@ -10,9 +10,10 @@ namespace RobotMaze
         TurnLeft = 1,
         TurnRight = 2,
         UTurn = 3,
-        PickUpItem = 4,
-        DropItem = 5,
-        Stop = 6
+        PushItem = 4,
+        PickUpItem = 5,
+        DropItem = 6,
+        Stop = 7
     }
 
     public class Instruction : MonoBehaviour

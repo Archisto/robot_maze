@@ -117,6 +117,11 @@ namespace RobotMaze
                     UTurn();
                     break;
                 }
+                case InstructionType.PushItem:
+                {
+                    DropItem();
+                    break;
+                }
                 case InstructionType.PickUpItem:
                 {
                     PickUpItem();
@@ -130,9 +135,14 @@ namespace RobotMaze
             }
         }
 
-        
+
 
         private void UTurn()
+        {
+
+        }
+
+        private void PushItem()
         {
 
         }
@@ -150,7 +160,14 @@ namespace RobotMaze
 		public void MoveForward()
 		{
 			if (canAct) {
-				StartCoroutine (MoveSquare ());
+                if (!ObstacleAhead())
+                {
+                    StartCoroutine(MoveSquare());
+                }
+                else
+                {
+                    Debug.Log(this.name + " cannot move because there's an obstacle in the way.");
+                }
 			}
 		}
 
@@ -195,5 +212,10 @@ namespace RobotMaze
 			canAct = true;
 			readyForNextInstruction = true;
 		}
+
+        private bool ObstacleAhead()
+        {
+            return Physics.Raycast(transform.position, transform.forward, 1);
+        }
     }
 }
