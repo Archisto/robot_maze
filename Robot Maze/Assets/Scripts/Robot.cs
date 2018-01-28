@@ -296,6 +296,10 @@ namespace RobotMaze
             if (ratio >= 1.0f)
             {
                 transform.position = targetPosition;
+				if (transform.position.x < -3f && transform.position.x > -4f && transform.position.z < 7f && transform.position.z > 6f) 
+				{
+					FindObjectOfType<Win> ().DoWin ();
+				}
                 FinishAction();
             }
         }
@@ -359,6 +363,27 @@ namespace RobotMaze
 
             return false;
         }
+
+		private void OverGoal()
+		{
+			raycastStart = transform.position;
+			raycastEnd = raycastStart - transform.up * 20;
+			Debug.Log (raycastStart + " is the start");
+			Debug.Log (raycastEnd + " is what should be hit");
+
+			Ray ray = new Ray (raycastStart, raycastEnd);
+			RaycastHit hitInfo;
+			if (Physics.Raycast (ray, out hitInfo, 20f)) 
+			{
+				Win hitWin = hitInfo.transform.GetComponent<Win> ();
+				if (hitWin != null) 
+				{
+					
+					hitWin.DoWin ();
+				}
+			}
+
+		}
 
         private bool ObstacleAhead(float maxDistance)
         {
