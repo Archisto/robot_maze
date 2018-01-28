@@ -35,6 +35,8 @@ namespace RobotMaze
         public float gridSideLength;
         public float robotActionDuration;
 
+		private float startActionDuration;
+
         public bool debug_resetLevel;
 
         private void Awake()
@@ -48,6 +50,8 @@ namespace RobotMaze
                 Destroy(gameObject);
                 return;
             }
+
+			startActionDuration = robotActionDuration;
 
             Init();
         }
@@ -68,6 +72,7 @@ namespace RobotMaze
 
         public void ResetLevel()
         {
+			robotActionDuration = startActionDuration;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }

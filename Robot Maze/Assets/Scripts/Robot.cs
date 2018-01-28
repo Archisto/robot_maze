@@ -382,5 +382,9 @@ namespace RobotMaze
             Gizmos.color = Color.green;
             Gizmos.DrawLine(raycastStart, raycastEnd);
         }
+
+		public bool IsBroken(){
+			return broken;
+		}
     }
 }

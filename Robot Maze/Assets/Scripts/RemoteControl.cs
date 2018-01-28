@@ -27,6 +27,12 @@ namespace RobotMaze
 
         private bool resetButtonTarget = false;
 
+		private bool speedButtonTarget = false;
+
+		private float speedOptionTarget = 0f;
+
+		private SpeedOption speedObjectTarget;
+
         /// <summary>
         /// Initializes the object.
         /// </summary>
@@ -60,6 +66,7 @@ namespace RobotMaze
 			if (Physics.Raycast (forwardRay, out hit, maxTransmissionDist)) {
 				hitObj = hit.transform.gameObject;
                 CheckTargetResetButton(hitObj);
+				CheckTargetSpeedButton (hitObj);
                 CheckTargetRobot(hitObj);
 				Debug.Log (hitObj.name);
 			} else {
@@ -87,11 +94,39 @@ namespace RobotMaze
             }
         }
 
+		private bool CheckTargetSpeedButton(GameObject hitObj)
+		{
+			if (hitObj.tag == "Speed")
+			{
+				
+
+				if (hitObj.GetComponent<SpeedOption> () != null) 
+				{
+					speedObjectTarget = hitObj.GetComponent<SpeedOption> ();
+					speedOptionTarget = speedObjectTarget.Number;
+				}
+
+				if (!speedButtonTarget)
+				{
+					speedButtonTarget = true;
+				}
+				return true;
+			}
+			else
+			{
+				if (speedButtonTarget)
+				{
+					speedButtonTarget = false;
+				}
+				return false;
+			}
+		}
+
         private bool CheckTargetRobot(GameObject hitObj)
         {
             targetRobot = null;
             targetRobot = hitObj.GetComponent<Robot>();
-            if (targetRobot != null)
+			if (targetRobot != null && !targetRobot.IsBroken())
             {
                 arrow.SetActive(true);
                 arrow.transform.position = new Vector3(targetRobot.transform.position.x, targetRobot.transform.position.y + 2f, targetRobot.transform.position.z);
@@ -112,6 +147,11 @@ namespace RobotMaze
             {
                 GameManager.Instance.ResetLevel();
             }
+			else if (speedButtonTarget)
+			{
+				GameManager.Instance.robotActionDuration = speedOptionTarget;
+				speedObjectTarget.WasClicked ();
+			}
             else
             {
                 if (targetRobot != null)

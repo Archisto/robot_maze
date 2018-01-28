@@ -7,14 +7,33 @@ namespace RobotMaze
     public class SpeedOption : MonoBehaviour
     {
         [SerializeField]
-        private int number;
+        private float number;
 
-        public int Number
+		[SerializeField]
+		private Material[] materials;
+
+		private SpeedOption[] options;
+
+		public float Number
         {
             get
             {
                 return number;
             }
         }
+
+		void Start()
+		{
+			options = FindObjectsOfType<SpeedOption> ();
+		}
+
+		public void WasClicked()
+		{
+			foreach (SpeedOption op in options) {
+				op.gameObject.GetComponent<MeshRenderer> ().material = materials [0];
+			}
+
+			GetComponent<MeshRenderer> ().material = materials [1];
+		}
     }
 }
