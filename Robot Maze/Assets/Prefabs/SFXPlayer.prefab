@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1604545730025320}
+  m_IsPrefabParent: 1
+--- !u!1 &1604545730025320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4402804983531048}
+  - component: {fileID: 114487925954230696}
+  m_Layer: 0
+  m_Name: SFXPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4402804983531048
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604545730025320}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114487925954230696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604545730025320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ab27277558b544696a325a37b371b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 8300000, guid: 1e3169f264e19874ba9e02a2883738b6, type: 3}
+  - {fileID: 8300000, guid: 56ddeca022e32dc49ac343093ec9dd80, type: 3}
+  - {fileID: 8300000, guid: 2eb48a6afb22bf3439c9e49d14524839, type: 3}
+  - {fileID: 8300000, guid: 8379c83f194369044aebf9ff4764e946, type: 3}
+  - {fileID: 8300000, guid: 4b2feba7f7c05c740800001f4c8e83bd, type: 3}
+  - {fileID: 8300000, guid: 96dea28d0504537448c440411663fb44, type: 3}
+  - {fileID: 8300000, guid: 83869aac16879514d922acedf6893e09, type: 3}
+  - {fileID: 8300000, guid: 352e83bd47f0f74429f2c09087eef07f, type: 3}
+  - {fileID: 8300000, guid: 9bb97250ecc43c349b937767092703fd, type: 3}
+  - {fileID: 8300000, guid: c1c3b41a7ecb6644ba25820d00530a4f, type: 3}
+  - {fileID: 8300000, guid: 4b552b64f68df56408be5e774163c230, type: 3}
+  audioSrcPrefab: {fileID: 1493857812025064, guid: c21d32449e3bd6641b133b5541901318,
+    type: 2}
+  volume: 1
+  audioSrcPoolSize: 5
+  flexiblePoolSize: 0

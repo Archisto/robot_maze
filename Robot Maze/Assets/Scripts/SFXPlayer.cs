@@ -33,7 +33,19 @@ namespace RobotMaze
         ButtonPress = 7,
         RadioShort = 8,
         RadioRising = 9,
-        Echo = 10
+        Ascend = 10,
+        Descend = 11,
+        Bell = 12,
+        Chime = 13,
+        DoorOpen = 14,
+        DoorShut = 15,
+        Knock = 16,
+        Laser1 = 17,
+        Laser2 = 18,
+        Laser3 = 19,
+        Laser4 = 20,
+        Error1 = 21,
+        Error2 = 22
     }
 
     public class SFXPlayer : MonoBehaviour

@@ -145,26 +145,44 @@ namespace RobotMaze
         {
             if (resetButtonTarget)
             {
+                // Plays a sound
+                SFXPlayer.Instance.Play(Sound.Confirm, false);
+
                 GameManager.Instance.ResetLevel();
             }
 			else if (speedButtonTarget)
 			{
-				GameManager.Instance.robotActionDuration = speedOptionTarget;
+                // Plays a sound
+                SFXPlayer.Instance.Play(Sound.Confirm, false);
+
+                GameManager.Instance.robotActionDuration = speedOptionTarget;
 				speedObjectTarget.WasClicked ();
-			}
+            }
             else
             {
                 if (targetRobot != null)
                 {
+                    // Plays a sound
+                    SFXPlayer.Instance.Play(Sound.Confirm, false);
+
                     Debug.Log("Robot activated");
                     //targetRobot.Active = true;
                     targetRobot.Activate(instructions);
                     targetRobot = null;
                 }
-                _buttonIsHeld = false;
+
+                // No target
+                else
+                {
+                    // Plays a sound
+                    SFXPlayer.Instance.Play(Sound.ButtonPress, false);
+                }
+
                 arrow.SetActive(false);
-                StartCoroutine(ButtonUp());
             }
+
+            _buttonIsHeld = false;
+            StartCoroutine(ButtonUp());
         }
 
 		IEnumerator ButtonDown(){
