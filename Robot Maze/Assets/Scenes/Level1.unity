@@ -2246,6 +2246,7 @@ GameObject:
   - component: {fileID: 189641929}
   - component: {fileID: 189641928}
   - component: {fileID: 189641927}
+  - component: {fileID: 189641930}
   m_Layer: 0
   m_Name: FloorTile (59)
   m_TagString: Untagged
@@ -2311,7 +2312,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.1, y: 1.1, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &189641929
 MeshFilter:
@@ -2320,6 +2321,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 189641925}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &189641930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 189641925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8a6354cc39274488ccdffe5f861e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &190474202 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1550491038400912, guid: d479fcb564ee37042b48b21de8ba4d70,

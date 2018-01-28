@@ -7,23 +7,21 @@ namespace RobotMaze
 
 	public class Win : MonoBehaviour {
 
-		// Use this for initialization
-		void Start () {
-			
-		}
-		
-		// Update is called once per frame
-		void Update () {
-			
+		GameObject _myParticleSystem;
+
+		void Start()
+		{
+			_myParticleSystem = transform.GetChild (0).gameObject;
 		}
 
-		void OnTriggerEnter(Collider other){
-			if (other.gameObject.tag == "Robot") {
-				Robot[] robots = FindObjectsOfType<Robot> ();
-				foreach (Robot rob in robots) {
-					rob.enabled = false;
-				}
+		public void DoWin()
+		{
+			Robot[] robots = FindObjectsOfType<Robot> ();
+			foreach (Robot rob in robots) {
+				rob.enabled = false;
 			}
+
+			_myParticleSystem.SetActive (true);
 		}
 	}
 }
