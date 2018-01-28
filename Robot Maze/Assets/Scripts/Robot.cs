@@ -195,6 +195,7 @@ namespace RobotMaze
                 }
                 else
                 {
+					SFXPlayer.Instance.Play (Sound.Chatter, false);
                     Deactivate();
                     Debug.Log(name + " cannot move because there's an obstacle in the way.");
                 }
@@ -289,6 +290,7 @@ namespace RobotMaze
                 broken = true;
                 transform.Find("Point light").gameObject.SetActive(false);
                 transform.Find("Point light (1)").gameObject.SetActive(false);
+				SFXPlayer.Instance.Play (Sound.DoorShut, false);
                 Deactivate();
                 Debug.Log(name + " crashed into another robot.");
             }

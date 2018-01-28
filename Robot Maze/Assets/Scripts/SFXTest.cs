@@ -82,11 +82,7 @@ namespace RobotMaze
                 SFXPlayer.Instance.Play(Sound.RadioRising, false);
                 play6 = false;
             }
-            if (play7)
-            {
-                SFXPlayer.Instance.Play(Sound.Echo, false);
-                play7 = false;
-            }
+            //
         }
     }
 }
