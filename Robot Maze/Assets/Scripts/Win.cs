@@ -20,7 +20,7 @@ namespace RobotMaze
 			foreach (Robot rob in robots) {
 				rob.enabled = false;
 			}
-			SFXPlayer.Instance.Play (Sound.Chime, false);
+			SFXPlayer.Instance.Play (Sound.Bell, false);
 			_myParticleSystem.SetActive (true);
 		}
 	}
