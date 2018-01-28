@@ -16,14 +16,6 @@ namespace RobotMaze
             instructions = GetComponentsInChildren<Instruction>();
         }
 
-        /// <summary>
-        /// Update is called once per frame.
-        /// </summary>
-        private void Update()
-        {
-
-        }
-
         public Instruction[] Instructions
         {
             get
