@@ -9,6 +9,7 @@ TagManager:
   - TeleportIgnore
   - Robot
   - ResetButton
+  - Speed
   layers:
   - Default
   - TransparentFX
