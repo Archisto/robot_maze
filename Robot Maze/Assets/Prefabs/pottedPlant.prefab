@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 4440286549180454}
   - component: {fileID: 95442119165086416}
   m_Layer: 0
-  m_Name: pottedPlant
+  m_Name: PottedPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
