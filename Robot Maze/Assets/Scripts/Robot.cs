@@ -304,8 +304,6 @@ namespace RobotMaze
         {
             float ratio = (Time.time - startTime) / GameManager.Instance.robotActionDuration;
 
-            Debug.Log(name + " transform.rotation: " + transform.rotation.eulerAngles);
-            Debug.Log(name + "startRotation: " + startRotation.eulerAngles);
             transform.rotation = Quaternion.Lerp(startRotation, targetRotation, ratio);
 
             if (ratio >= 1.0f)
