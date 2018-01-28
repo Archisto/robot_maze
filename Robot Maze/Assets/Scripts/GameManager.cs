@@ -33,7 +33,9 @@ namespace RobotMaze
         #endregion Statics
 
         public float gridSideLength;
-        public float robotActionSpeed;
+        public float robotActionDuration;
+
+        public bool debug_resetLevel;
 
         private void Awake()
         {
@@ -52,7 +54,11 @@ namespace RobotMaze
 
         private void Update()
         {
-
+            if (debug_resetLevel)
+            {
+                debug_resetLevel = false;
+                ResetLevel();
+            }
         }
 
         private void Init()

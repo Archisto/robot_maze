@@ -19,22 +19,5 @@ namespace RobotMaze
     public class Instruction : MonoBehaviour
     {
         public InstructionType type;
-        public string text;
-
-        /// <summary>
-        /// Initializes the object.
-        /// </summary>
-        private void Start()
-        {
-
-        }
-
-        /// <summary>
-        /// Update is called once per frame.
-        /// </summary>
-        private void Update()
-        {
-
-        }
     }
 }
